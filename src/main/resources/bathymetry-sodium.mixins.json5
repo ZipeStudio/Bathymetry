@@ -1,0 +1,17 @@
+{
+	"required": false,
+	"package": "me.zipestudio.bathymetry.mixin.sodium",
+	"plugin": "me.zipestudio.bathymetry.compat.SodiumCompatPlugin",
+	"refmap": "${mod_id}.refmap.json",
+	"compatibilityLevel": "JAVA_${java}",
+	"mixins": [
+	],
+	"client": [
+		//? if !forge {
+		/*"SodiumFluidRendererMixin"
+		*///?}
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

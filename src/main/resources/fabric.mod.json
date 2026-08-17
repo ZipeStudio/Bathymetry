@@ -1,0 +1,39 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${mod_version}",
+    "name": "${mod_name}",
+    "description": "${mod_description}",
+    "authors": [
+        "${mod_authors}"
+    ],
+    "contact": {
+        "homepage": "https://modrinth.com/mod/${mod_slug}",
+        "issues": "https://github.com/${github_author}/${mod_slug}"
+    },
+    "license": "${mod_license}",
+    "icon": "icon/icon.png",
+    "environment": "${fabric_trick_side}",
+    "entrypoints": {
+        "main": [
+            "me.zipestudio.bathymetry.entrypoint.CommonEntrypoint"
+        ],
+        "client": [
+            "me.zipestudio.bathymetry.entrypoint.ClientEntrypoint"
+        ],
+        "modmenu": [
+            "me.zipestudio.bathymetry.modmenu.ModMenuIntegration"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=${fabric_loader}",
+        "minecraft": ">=${minecraft}",
+        "java": ">=${java}",
+        "${fabric_api_id}": "*",
+        "mossylib": ">=${mossylib}"
+    },
+	"accessWidener": "${fabric_trick_accesswidener_id}",
+    "mixins": [
+        "${fabric_trick_mixin_configs}"
+    ]
+}

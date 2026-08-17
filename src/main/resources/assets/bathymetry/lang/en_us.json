@@ -1,0 +1,45 @@
+{
+	"modmenu.descriptionTranslation.${mod_id}": "${mod_description}",
+	"${mod_id}.modmenu.title": "§l${mod_name} Configuration",
+
+	"${mod_id}.modmenu.category.general.name": "§lGeneral",
+
+	"${mod_id}.modmenu.group.main.name": "§lMain",
+	"${mod_id}.modmenu.group.main.description": "How deep water is coloured.",
+
+	"${mod_id}.modmenu.option.mod_enabled.name": "Mod Enabled",
+	"${mod_id}.modmenu.option.mod_enabled.description": "Turns the whole effect off. Water goes back to its vanilla colour.",
+
+	"${mod_id}.modmenu.option.intensity.name": "Intensity",
+	"${mod_id}.modmenu.option.intensity.description": "How far along the tint to go. 0 disables the effect, 1 is the default, 2 doubles it. Changes the strength without touching the hue — this is the knob to reach for when water is simply too dark or too pale.",
+
+	"${mod_id}.modmenu.option.shallow_tint.name": "Shallow Tint",
+	"${mod_id}.modmenu.option.shallow_tint.description": "The colour shallow water is tinted with — the start of the gradient. §eWhite = vanilla colour§r, meaning leave it alone. This is a filter rather than the water colour itself: it multiplies the biome's colour, so a swamp still reads greener than an ocean. Hence the limit — it can darken or tint, but never brighten; white is the ceiling here.",
+
+	"${mod_id}.modmenu.option.deep_tint.name": "Deep Tint",
+	"${mod_id}.modmenu.option.deep_tint.description": "The colour water is tinted with at Deep Depth and below — the end of the gradient. In between, the colour interpolates smoothly by water column thickness. Also a filter, so the biome palette survives. Darker values darken more, and skewing towards blue gives the shift into blue-green that real water has.",
+
+	"${mod_id}.modmenu.group.depth.name": "§lDepth",
+	"${mod_id}.modmenu.group.depth.description": "Over what range of depths the effect ramps up.",
+
+	"${mod_id}.modmenu.option.shallow_depth.name": "Shallow Depth",
+	"${mod_id}.modmenu.option.shallow_depth.description": "Column thickness up to which water holds the Shallow Tint unchanged. A one-block puddle and a two-block shallow both get exactly that colour; the shift towards the Deep Tint only begins here.",
+
+	"${mod_id}.modmenu.option.deep_depth.name": "Deep Depth",
+	"${mod_id}.modmenu.option.deep_depth.description": "The column thickness at which the Deep Tint is reached in full. Anything deeper looks the same. Lower it to make the transition punchier, raise it to stretch the gradient out.",
+
+	"${mod_id}.modmenu.option.smooth_edges.name": "Smooth Edges",
+	"${mod_id}.modmenu.option.smooth_edges.description": "Blends the colour across each block face instead of filling it flat. With this off, a sloping sea floor shows visible steps between columns.",
+
+	"${mod_id}.modmenu.option.smoothing_radius.name": "Smoothing Radius",
+	"${mod_id}.modmenu.option.smoothing_radius.description": "How many blocks the transition between columns of different depth is spread across. Fixes the seam at an underwater drop-off, where a thin column borders a deep one: at zero the colour changes there within a single block. The kernel is triangular, so a column weighs more than its neighbours and narrow trenches and shoals do not dissolve into their surroundings. A larger radius softens the joint but costs more at chunk build time.",
+
+	"${mod_id}.modmenu.group.fog.name": "§lFog",
+	"${mod_id}.modmenu.group.fog.description": "How depth reads from inside the water.",
+
+	"${mod_id}.modmenu.option.underwater_fog.name": "Underwater Fog",
+	"${mod_id}.modmenu.option.underwater_fog.description": "Thickens fog underwater the deeper you go. The colour gradient only reads from outside: once submerged you no longer look at top faces and cannot tell an ocean from a puddle. This fills exactly that gap. It measures depth below the surface rather than total column thickness — what matters is how much water above your head is eating the light.",
+
+	"${mod_id}.modmenu.option.deep_fog_distance.name": "Deep Fog Distance",
+	"${mod_id}.modmenu.option.deep_fog_distance.description": "What fraction of normal view distance is left at the Deep Depth. 1.0 changes nothing, 0.5 halves it, 0.1 is near-opaque. The slider stops there: below it the water becomes a solid fill and you cannot navigate at all."
+}

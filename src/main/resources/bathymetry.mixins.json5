@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "me.zipestudio.bathymetry.mixin",
+	"refmap": "${mod_id}.refmap.json",
+	"compatibilityLevel": "JAVA_${java}",
+	"mixins": [
+	],
+	"client": [
+		"FluidTintMixin",
+		"FogDistanceMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
