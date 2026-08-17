@@ -17,18 +17,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import me.zipestudio.bathymetry.water.WaterDepthTint;
 
 //? if >=26.1 {
-/*import net.minecraft.client.renderer.block.BlockAndTintGetter;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.block.FluidRenderer;
-*///?} else {
-import net.minecraft.client.renderer.block.LiquidBlockRenderer;
+//?} else {
+/*import net.minecraft.client.renderer.block.LiquidBlockRenderer;
 import net.minecraft.world.level.BlockAndTintGetter;
-//?}
+*///?}
 
 //? if >=26.1 {
-/*@Mixin(FluidRenderer.class)
-*///?} else {
-@Mixin(LiquidBlockRenderer.class)
-//?}
+@Mixin(FluidRenderer.class)
+//?} else {
+/*@Mixin(LiquidBlockRenderer.class)
+*///?}
 public class FluidTintMixin {
 
 	@Inject(method = "tesselate", at = @At("HEAD"))
@@ -36,10 +36,10 @@ public class FluidTintMixin {
 		BlockAndTintGetter region,
 		BlockPos pos,
 		//? if >=26.1 {
-		/*FluidRenderer.Output output,
-		*///?} else {
-		VertexConsumer buffer,
-		//?}
+		FluidRenderer.Output output,
+		//?} else {
+		/*VertexConsumer buffer,
+		*///?}
 		BlockState blockState,
 		FluidState fluidState,
 		CallbackInfo ci
@@ -53,10 +53,10 @@ public class FluidTintMixin {
 		BlockAndTintGetter region,
 		BlockPos pos,
 		//? if >=26.1 {
-		/*FluidRenderer.Output output,
-		*///?} else {
-		VertexConsumer buffer,
-		//?}
+		FluidRenderer.Output output,
+		//?} else {
+		/*VertexConsumer buffer,
+		*///?}
 		BlockState blockState,
 		FluidState fluidState,
 		CallbackInfo ci
@@ -65,7 +65,7 @@ public class FluidTintMixin {
 	}
 
 	//? if >=26.1 {
-	/*@WrapOperation(
+	@WrapOperation(
 		method = "addFace",
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/block/FluidRenderer;vertex(Lcom/mojang/blaze3d/vertex/VertexConsumer;FFFIFFI)V")
 	)
@@ -80,8 +80,8 @@ public class FluidTintMixin {
 		}
 		original.call(self, builder, x, y, z, color, u, v, light);
 	}
-	*///?} elif forge {
-	@WrapOperation(
+	//?} elif forge {
+	/*@WrapOperation(
 		method = "tesselate",
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/block/LiquidBlockRenderer;vertex(Lcom/mojang/blaze3d/vertex/VertexConsumer;DDDFFFFFFI)V", remap = false)
 	)
@@ -98,7 +98,7 @@ public class FluidTintMixin {
 		}
 		original.call(self, builder, x, y, z, r, g, b, alpha, u, v, light);
 	}
-	//?} elif neoforge {
+	*///?} elif neoforge {
 	/*@WrapOperation(
 		method = "tesselate",
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/block/LiquidBlockRenderer;vertex(Lcom/mojang/blaze3d/vertex/VertexConsumer;FFFFFFFFFI)V")

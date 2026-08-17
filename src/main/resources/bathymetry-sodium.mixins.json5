@@ -8,8 +8,8 @@
 	],
 	"client": [
 		//? if !forge {
-		/*"SodiumFluidRendererMixin"
-		*///?}
+		"SodiumFluidRendererMixin"
+		//?}
 	],
 	"injectors": {
 		"defaultRequire": 1

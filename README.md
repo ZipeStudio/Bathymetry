@@ -38,9 +38,9 @@
 
 **Bathymetry** — visualizes underwater terrain depth through water color.
 
-In vanilla, a two-block puddle and a thirty-block trench look exactly the same from above. This mod tints water by how thick the column beneath it actually is: shallows stay vanilla, and the colour shifts smoothly towards the deep tint as the sea floor drops away. Suddenly you can read the shape of the sea floor without diving.
+In vanilla, a two-block puddle and a thirty-block trench look exactly the same from above. This mod tints water by how thick the column beneath it actually is: shallows stay vanilla, and the color shifts smoothly towards the deep tint as the sea floor drops away. Suddenly you can read the shape of the sea floor without diving.
 
-The colour is a **filter**, not a replacement — it multiplies the biome's own water colour, so a swamp still reads greener than an ocean and resource packs keep working.
+The color is a **filter**, not a replacement — it multiplies the biome's own water color, so a swamp still reads greener than an ocean and resource packs keep working.
 
 Dive in and the same depth is carried by fog instead: the deeper you go, the shorter the visibility.
 

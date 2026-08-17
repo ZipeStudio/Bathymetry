@@ -2,7 +2,7 @@ package me.zipestudio.bathymetry.entrypoint;
 
 //? if fabric {
 
-/*import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 
 import me.zipestudio.bathymetry.client.BathymetryClient;
 
@@ -15,7 +15,7 @@ public class ClientEntrypoint implements ClientModInitializer {
 
 }
 
-*///?} elif neoforge {
+//?} elif neoforge {
 /*import me.zipestudio.bathymetry.Bathymetry;
 
 import me.zipestudio.bathymetry.client.BathymetryClient;
@@ -37,7 +37,7 @@ public class ClientEntrypoint {
 
 *///?} elif forge {
 
-import me.zipestudio.bathymetry.client.BathymetryClient;
+/*import me.zipestudio.bathymetry.client.BathymetryClient;
 import me.zipestudio.bathymetry.modmenu.ModMenuIntegration;
 import net.minecraftforge.fml.ModLoadingContext;
 
@@ -51,4 +51,4 @@ public class ClientEntrypoint {
 
 }
 
-//?}
+*///?}

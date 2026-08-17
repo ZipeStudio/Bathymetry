@@ -22,15 +22,15 @@ public class BathymetryClient {
 		}
 
 		//? if >=26.2 {
-		/*minecraft.levelRenderer.invalidateCompiledGeometry(
+		minecraft.levelRenderer.invalidateCompiledGeometry(
 			minecraft.level,
 			minecraft.options,
 			minecraft.gameRenderer.mainCamera(),
 			minecraft.getBlockColors()
 		);
-		*///?} else {
-		minecraft.levelRenderer.allChanged();
-		//?}
+		//?} else {
+		/*minecraft.levelRenderer.allChanged();
+		*///?}
 
 	}
 

@@ -36,10 +36,10 @@ public final class UnderwaterFog {
 		}
 
 		//? if >=26.2 {
-		/*Camera camera = minecraft.gameRenderer.mainCamera();
-		*///?} else {
-		Camera camera = minecraft.gameRenderer.getMainCamera();
-		//?}
+		Camera camera = minecraft.gameRenderer.mainCamera();
+		//?} else {
+		/*Camera camera = minecraft.gameRenderer.getMainCamera();
+		*///?}
 		if (camera == null || camera.getFluidInCamera() != FogType.WATER) {
 			return 1.0F;
 		}
@@ -60,12 +60,12 @@ public final class UnderwaterFog {
 	private static float depthBelowSurface(Minecraft minecraft, Camera camera, LeafyConfig config) {
 
 		//? if >=1.21.11 {
-		/*BlockPos cameraPos = camera.blockPosition();
+		BlockPos cameraPos = camera.blockPosition();
 		double eyeY = camera.position().y;
-		*///?} else {
-		BlockPos cameraPos = camera.getBlockPosition();
+		//?} else {
+		/*BlockPos cameraPos = camera.getBlockPosition();
 		double eyeY = camera.getPosition().y;
-		//?}
+		*///?}
 		int x = cameraPos.getX();
 		int y = cameraPos.getY();
 		int z = cameraPos.getZ();

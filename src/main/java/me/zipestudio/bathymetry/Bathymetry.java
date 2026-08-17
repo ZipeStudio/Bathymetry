@@ -2,7 +2,7 @@ package me.zipestudio.bathymetry;
 
 import net.lopymine.mossylib.logger.MossyLogger;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class Bathymetry {
 
@@ -11,20 +11,20 @@ public class Bathymetry {
 
 	public static MossyLogger LOGGER = new MossyLogger(Bathymetry.MOD_NAME);
 
-	public static ResourceLocation id(String path) {
+	public static Identifier id(String path) {
 		//? if >=1.21 {
-		/*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-		*///?} else {
-		return ResourceLocation.tryBuild(MOD_ID, path);
-		 //?}
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+		//?} else {
+		/*return Identifier.tryBuild(MOD_ID, path);
+		 *///?}
 	}
 
-	public static ResourceLocation parseId(String path) {
+	public static Identifier parseId(String path) {
 		//? if >=1.21 {
-		/*return ResourceLocation.parse(path);
-		*///?} else {
-		return new ResourceLocation(path);
-		 //?}
+		return Identifier.parse(path);
+		//?} else {
+		/*return new Identifier(path);
+		 *///?}
 	}
 
 	public static MutableComponent text(String path, Object... args) {

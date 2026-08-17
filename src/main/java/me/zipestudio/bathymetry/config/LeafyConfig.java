@@ -75,7 +75,7 @@ public class LeafyConfig {
 		try {
 			return Integer.parseInt(value.trim().replace("#", ""), 16) & 0xFFFFFF;
 		} catch (NumberFormatException e) {
-			LOGGER.warn("Not a hex colour: '{}', falling back to {}", value, formatHexColor(fallback));
+			LOGGER.warn("Not a hex color: '{}', falling back to {}", value, formatHexColor(fallback));
 			return fallback;
 		}
 	}

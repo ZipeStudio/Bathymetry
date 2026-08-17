@@ -2,7 +2,7 @@ package me.zipestudio.bathymetry.entrypoint;
 
 //? if fabric {
 
-/*import me.zipestudio.bathymetry.Bathymetry;
+import me.zipestudio.bathymetry.Bathymetry;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -14,7 +14,7 @@ public class CommonEntrypoint implements ModInitializer {
 	}
 }
 
-*///?} elif neoforge {
+//?} elif neoforge {
 /*import me.zipestudio.bathymetry.Bathymetry;
 
 import net.neoforged.fml.common.Mod;
@@ -29,7 +29,7 @@ public class CommonEntrypoint {
 }
 
 *///?} elif forge {
-import me.zipestudio.bathymetry.Bathymetry;
+/*import me.zipestudio.bathymetry.Bathymetry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -44,5 +44,5 @@ public class CommonEntrypoint {
 
 }
 
-//?}
+*///?}
 

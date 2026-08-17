@@ -1,10 +1,10 @@
 package me.zipestudio.bathymetry.mixin.sodium;
 
 //? if forge {
-public class SodiumFluidRendererMixin {
+/*public class SodiumFluidRendererMixin {
 }
-//?} elif >=1.21 {
-/*import net.caffeinemc.mods.sodium.client.model.color.ColorProvider;
+*///?} elif >=1.21 {
+import net.caffeinemc.mods.sodium.client.model.color.ColorProvider;
 import net.caffeinemc.mods.sodium.client.model.light.LightPipeline;
 import net.caffeinemc.mods.sodium.client.model.quad.ModelQuadViewMutable;
 import net.caffeinemc.mods.sodium.client.model.quad.properties.ModelQuadFacing;
@@ -55,7 +55,7 @@ public class SodiumFluidRendererMixin {
 		WaterDepthTint.endBlock();
 	}
 }
-*///?} else {
+//?} else {
 /*import me.jellysquid.mods.sodium.client.model.color.ColorProvider;
 import me.jellysquid.mods.sodium.client.model.light.LightPipeline;
 import me.jellysquid.mods.sodium.client.model.quad.ModelQuadView;
