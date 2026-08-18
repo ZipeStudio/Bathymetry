@@ -38,11 +38,9 @@
 
 **Bathymetry** — visualizes underwater terrain depth through water color.
 
-In vanilla, a two-block puddle and a thirty-block trench look exactly the same from above. This mod tints water by how thick the column beneath it actually is: shallows stay vanilla, and the color shifts smoothly towards the deep tint as the sea floor drops away. Suddenly you can read the shape of the sea floor without diving.
+In vanilla, a two-block puddle and a thirty-block ocean look exactly the same from above. This mod changes the color of the water depending on the actual depth from the surface to the bottom: shallows stay vanilla, and the color shifts smoothly towards the deep tint as the ocean floor drops away.
 
 The color is a **filter**, not a replacement — it multiplies the biome's own water color, so a swamp still reads greener than an ocean and resource packs keep working.
-
-Dive in and the same depth is carried by fog instead: the deeper you go, the shorter the visibility.
 
 ### Showcase
 <img src="https://github.com/ZipeStudio/bathymetry/blob/master/assets/showcase.gif?raw=true" width="100%" alt="showcase">
@@ -70,7 +68,7 @@ In-game settings screen via **Mod Menu** and **YACL**, applied instantly without
 - **Smooth Edges** and **Smoothing Radius** — how far the transition is blended across an underwater drop-off, so a cliff in the sea floor does not read as a hard seam.
 
 **Fog**
-- **Underwater Fog** — thickens fog with depth once you are submerged.
+- **Underwater Fog** — thickens fog with depth once you are submerged. **By default — disabled.**
 - **Deep Fog Distance** — how much visibility is left at maximum depth.
 
 Everything is also editable by hand in `config/bathymetry.json5`, colors included — they are stored as plain hex strings.
