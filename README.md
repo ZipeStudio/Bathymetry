@@ -63,7 +63,7 @@ The mod is very easily configurable using **Mod Menu** and **YACL** for instant 
 
 **Depth**
 - **Shallow** and **Deep Depth** over what range of water deepness the gradient ramps up.
-- **Smooth Edges** and **Smoothing Radius** how far the transition is blended across large drop offs, so a cliff in the sea floor does not look like a hard seam.
+- **Smooth Edges** and **Smoothing Radius** how far the transition is blended across large drop-offs, so a cliff in the sea floor does not look like a hard seam.
 
 **Fog**
 - **Underwater Fog** thickens fog with depth once you are submerged. **Disabled by default.**
