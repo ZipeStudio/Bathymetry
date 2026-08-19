@@ -1,2 +1,3 @@
-v1.0.0:
-- Hello World
+v1.0.1:
+### Changes
+- Corrected lang files

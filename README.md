@@ -36,42 +36,40 @@
 
 !["Description" Title](https://github.com/ZipeStudio/Vault/blob/main/design/mods/main/ZSdescription.png?raw=true)
 
-**Bathymetry** — visualizes underwater terrain depth through water color.
+**Bathymetry** — A client-side mod that visualizes underwater terrain depth through water color.
 
-In vanilla, a two-block puddle and a thirty-block ocean look exactly the same from above. This mod changes the color of the water depending on the actual depth from the surface to the bottom: shallows stay vanilla, and the color shifts smoothly towards the deep tint as the ocean floor drops away.
+In vanilla, a puddle will look the same as a deep ocean. This mod changes the water's color depending on the depth from the surface to the bottom. Shalllows will look the same but the deeper you go the darker the water gets.
 
-The color is a **filter**, not a replacement — it multiplies the biome's own water color, so a swamp still reads greener than an ocean and resource packs keep working.
+This mod ensures the biome tint stays by multiplying the colors instead of overwriting them.
 
 ### Showcase
 <img src="https://github.com/ZipeStudio/bathymetry/blob/master/assets/showcase.gif?raw=true" width="100%" alt="showcase">
 
 !["Compatibility" Title](https://github.com/ZipeStudio/Vault/blob/main/design/mods/main/ZScompatible.png?raw=true)
 
-- **Client-side only** — multiplayer friendly, no server install required
-- **Resource packs** keep working: the mod multiplies the existing water color instead of replacing it.
-- **Biome colors survive.** Swamp, mangrove and warm ocean stay distinct at every depth.
+The mod is client-side and fully compatible with resource packs and datapacks, even if they change biome colors.
 
-> **Shaders:** depends on the pack — some draw water with the game's colors and work fine, others paint it themselves and ignore the mod.
+> **Shaders:** Some shaders overwrite the water color and ignore the mod so it depends on the shader.
 
 <img src="https://github.com/ZipeStudio/bathymetry/blob/master/assets/showcase_shaders.gif?raw=true" width="100%" alt="showcase_shaders">
 
 !["Configurable" Title](https://github.com/ZipeStudio/Vault/blob/main/design/mods/main/ZSconfigurable.png?raw=true)
 
-In-game settings screen via **Mod Menu** and **YACL**, applied instantly without a restart.
+The mod is very easily configurable using **Mod Menu** and **YACL** for instant updates without a restart, things you can configure are listed below.
 
 **Appearance**
-- **Intensity** — overall strength, without touching the hue.
-- **Shallow Tint** / **Deep Tint** — the two ends of the gradient. White means "leave vanilla alone".
+- **Intensity** overall strength without touching hue.
+- **Shallow** and **Deep Tint** the two ends of the gradient. White is vanilla.
 
 **Depth**
-- **Shallow Depth** / **Deep Depth** — over what range of water thickness the gradient ramps up.
-- **Smooth Edges** and **Smoothing Radius** — how far the transition is blended across an underwater drop-off, so a cliff in the sea floor does not read as a hard seam.
+- **Shallow** and **Deep Depth** over what range of water deepness the gradient ramps up.
+- **Smooth Edges** and **Smoothing Radius** how far the transition is blended across large drop offs, so a cliff in the sea floor does not look like a hard seam.
 
 **Fog**
-- **Underwater Fog** — thickens fog with depth once you are submerged. **By default — disabled.**
-- **Deep Fog Distance** — how much visibility is left at maximum depth.
+- **Underwater Fog** thickens fog with depth once you are submerged. **Disabled by default.**
+- **Deep Fog Distance** how much visibility is left at maximum depth.
 
-Everything is also editable by hand in `config/bathymetry.json5`, colors included — they are stored as plain hex strings.
+Everything is also editable by hand in `config/bathymetry.json5`, colors included, they are stored as plain hex strings.
 
 !["Support" Title](https://github.com/ZipeStudio/Vault/blob/main/design/mods/main/ZSsupport.png?raw=true)
 
