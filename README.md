@@ -36,7 +36,7 @@
 
 !["Description" Title](https://github.com/ZipeStudio/Vault/blob/main/design/mods/main/ZSdescription.png?raw=true)
 
-**Bathymetry** — A client-side mod that visualizes underwater terrain depth through water color.
+**Bathymetry** — A Client-side mod that visualizes underwater terrain depth through water color.
 
 In vanilla, a puddle will look the same as a deep ocean. This mod changes the water's color depending on the depth from the surface to the bottom. Shalllows will look the same but the deeper you go the darker the water gets.
 
@@ -68,6 +68,8 @@ The mod is very easily configurable using **Mod Menu** and **YACL** for instant 
 **Fog**
 - **Underwater Fog** thickens fog with depth once you are submerged. **Disabled by default.**
 - **Deep Fog Distance** how much visibility is left at maximum depth.
+
+<img src="https://github.com/ZipeStudio/bathymetry/blob/master/assets/config.png?raw=true" width="100%" alt="config">
 
 Everything is also editable by hand in `config/bathymetry.json5`, colors included, they are stored as plain hex strings.
 
