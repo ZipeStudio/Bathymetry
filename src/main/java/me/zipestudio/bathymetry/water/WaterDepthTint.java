@@ -13,6 +13,10 @@ import me.zipestudio.bathymetry.config.LeafyConfig;
 
 public final class WaterDepthTint {
 
+	public static final int RED_SHIFT = 16;
+	public static final int GREEN_SHIFT = 8;
+	public static final int BLUE_SHIFT = 0;
+
 	private static final long ABSENT = Long.MIN_VALUE;
 
 	private static final class Scope {
@@ -33,12 +37,8 @@ public final class WaterDepthTint {
 		private int maxScan;
 		private boolean smoothEdges;
 		private int smoothingRadius;
-		private float shallowR;
-		private float shallowG;
-		private float shallowB;
-		private float deepR;
-		private float deepG;
-		private float deepB;
+		private int shallowTint;
+		private int deepTint;
 
 		private Scope() {
 			this.columns.defaultReturnValue(ABSENT);
@@ -55,9 +55,6 @@ public final class WaterDepthTint {
 	}
 
 	private static final ThreadLocal<Scope> SCOPE = ThreadLocal.withInitial(Scope::new);
-
-	private WaterDepthTint() {
-	}
 
 	public static void beginBlock(Object region, Level level, BlockPos pos, FluidState fluidState) {
 		Scope scope = SCOPE.get();
@@ -85,15 +82,8 @@ public final class WaterDepthTint {
 		scope.smoothEdges = config.isSmoothEdges();
 		scope.smoothingRadius = Math.max(0, config.getSmoothingRadius());
 
-		int shallow = config.getShallowTint();
-		scope.shallowR = ((shallow >> 16) & 0xFF) / 255.0F;
-		scope.shallowG = ((shallow >> 8) & 0xFF) / 255.0F;
-		scope.shallowB = (shallow & 0xFF) / 255.0F;
-
-		int deep = config.getDeepTint();
-		scope.deepR = ((deep >> 16) & 0xFF) / 255.0F;
-		scope.deepG = ((deep >> 8) & 0xFF) / 255.0F;
-		scope.deepB = (deep & 0xFF) / 255.0F;
+		scope.shallowTint = config.getShallowTint();
+		scope.deepTint = config.getDeepTint();
 	}
 
 	public static void endBlock() {
@@ -134,39 +124,39 @@ public final class WaterDepthTint {
 	public static int darkenColor(int color, float ramp) {
 		Scope scope = SCOPE.get();
 		int a = color >>> 24;
-		int r = clampChannel(((color >> 16) & 0xFF) * factor(scope, ramp, scope.shallowR, scope.deepR));
-		int g = clampChannel(((color >> 8) & 0xFF) * factor(scope, ramp, scope.shallowG, scope.deepG));
-		int b = clampChannel((color & 0xFF) * factor(scope, ramp, scope.shallowB, scope.deepB));
+		int r = clampChannel(((color >> 16) & 0xFF) * channelFactor(scope, ramp, RED_SHIFT));
+		int g = clampChannel(((color >> 8) & 0xFF) * channelFactor(scope, ramp, GREEN_SHIFT));
+		int b = clampChannel((color & 0xFF) * channelFactor(scope, ramp, BLUE_SHIFT));
 		return (a << 24) | (r << 16) | (g << 8) | b;
 	}
 
 	public static int darkenColorAbgr(int color, float ramp) {
-		Scope scope = SCOPE.get();
-		int a = color >>> 24;
-		int b = clampChannel(((color >> 16) & 0xFF) * factor(scope, ramp, scope.shallowB, scope.deepB));
-		int g = clampChannel(((color >> 8) & 0xFF) * factor(scope, ramp, scope.shallowG, scope.deepG));
-		int r = clampChannel((color & 0xFF) * factor(scope, ramp, scope.shallowR, scope.deepR));
-		return (a << 24) | (b << 16) | (g << 8) | r;
+		return swapRedBlue(darkenColor(swapRedBlue(color), ramp));
 	}
 
-	public static float redFactor(float ramp) {
-		Scope scope = SCOPE.get();
-		return factor(scope, ramp, scope.shallowR, scope.deepR);
+	private static int swapRedBlue(int color) {
+		return (color & 0xFF00FF00) | ((color >> 16) & 0xFF) | ((color & 0xFF) << 16);
 	}
 
-	public static float greenFactor(float ramp) {
-		Scope scope = SCOPE.get();
-		return factor(scope, ramp, scope.shallowG, scope.deepG);
+	public static float channelFactor(float ramp, int shift) {
+		return channelFactor(SCOPE.get(), ramp, shift);
 	}
 
-	public static float blueFactor(float ramp) {
-		Scope scope = SCOPE.get();
-		return factor(scope, ramp, scope.shallowB, scope.deepB);
+	private static float channelFactor(Scope scope, float ramp, int shift) {
+		return factor(scope, ramp, tintChannel(scope.shallowTint, shift), tintChannel(scope.deepTint, shift));
+	}
+
+	public static float tintChannel(int tint, int shift) {
+		return ((tint >>> shift) & 0xFF) * (1.0F / 255.0F);
 	}
 
 	private static float factor(Scope scope, float ramp, float shallow, float deep) {
+		return channelFactor(ramp, scope.intensity, shallow, deep);
+	}
+
+	public static float channelFactor(float ramp, float intensity, float shallow, float deep) {
 		float target = shallow + (deep - shallow) * ramp;
-		float value = 1.0F + (target - 1.0F) * scope.intensity;
+		float value = 1.0F + (target - 1.0F) * intensity;
 		return value < 0.0F ? 0.0F : Math.min(value, 1.0F);
 	}
 
@@ -176,7 +166,11 @@ public final class WaterDepthTint {
 	}
 
 	private static float smoothstep(Scope scope, float thickness) {
-		float t = (thickness - scope.shallowDepth) / (scope.deepDepth - scope.shallowDepth);
+		return rampFromThickness(thickness, scope.shallowDepth, scope.deepDepth);
+	}
+
+	public static float rampFromThickness(float thickness, float shallowDepth, float deepDepth) {
+		float t = (thickness - shallowDepth) / (deepDepth - shallowDepth);
 		if (!(t > 0.0F)) {
 			return 0.0F;
 		}

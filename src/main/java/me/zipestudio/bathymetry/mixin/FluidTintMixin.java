@@ -92,9 +92,9 @@ public class FluidTintMixin {
 	) {
 		if (WaterDepthTint.active()) {
 			float ramp = WaterDepthTint.rampAtVertex((float) x, (float) z);
-			r *= WaterDepthTint.redFactor(ramp);
-			g *= WaterDepthTint.greenFactor(ramp);
-			b *= WaterDepthTint.blueFactor(ramp);
+			r *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.RED_SHIFT);
+			g *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.GREEN_SHIFT);
+			b *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.BLUE_SHIFT);
 		}
 		original.call(self, builder, x, y, z, r, g, b, alpha, u, v, light);
 	}
@@ -110,9 +110,9 @@ public class FluidTintMixin {
 	) {
 		if (WaterDepthTint.active()) {
 			float ramp = WaterDepthTint.rampAtVertex(x, z);
-			r *= WaterDepthTint.redFactor(ramp);
-			g *= WaterDepthTint.greenFactor(ramp);
-			b *= WaterDepthTint.blueFactor(ramp);
+			r *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.RED_SHIFT);
+			g *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.GREEN_SHIFT);
+			b *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.BLUE_SHIFT);
 		}
 		original.call(self, builder, x, y, z, r, g, b, alpha, u, v, light);
 	}
@@ -128,9 +128,9 @@ public class FluidTintMixin {
 	) {
 		if (WaterDepthTint.active()) {
 			float ramp = WaterDepthTint.rampAtVertex(x, z);
-			r *= WaterDepthTint.redFactor(ramp);
-			g *= WaterDepthTint.greenFactor(ramp);
-			b *= WaterDepthTint.blueFactor(ramp);
+			r *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.RED_SHIFT);
+			g *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.GREEN_SHIFT);
+			b *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.BLUE_SHIFT);
 		}
 		original.call(self, builder, x, y, z, r, g, b, u, v, light);
 	}
@@ -146,9 +146,9 @@ public class FluidTintMixin {
 	) {
 		if (WaterDepthTint.active()) {
 			float ramp = WaterDepthTint.rampAtVertex((float) x, (float) z);
-			r *= WaterDepthTint.redFactor(ramp);
-			g *= WaterDepthTint.greenFactor(ramp);
-			b *= WaterDepthTint.blueFactor(ramp);
+			r *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.RED_SHIFT);
+			g *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.GREEN_SHIFT);
+			b *= WaterDepthTint.channelFactor(ramp, WaterDepthTint.BLUE_SHIFT);
 		}
 		original.call(self, builder, x, y, z, r, g, b, u, v, light);
 	}

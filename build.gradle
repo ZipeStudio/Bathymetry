@@ -21,9 +21,8 @@ mossyDependencies {
 		//override("mossyCompileOnly", "yacl")
 		//disable("yacl")
 
-		// Sodium нужен только для компиляции компат-миксинов. В рантайме его может не быть —
-		// конфиг миксинов гейтится через SodiumCompatPlugin по наличию мода.
 		override("mossyCompileOnly", "sodium")
+		override("mossyCompileOnly", "distanthorizonsapi")
 	}
 }
 
@@ -32,10 +31,6 @@ mossyResources {
 	customProperty("mossylib_version", MossyUtils.substringBefore(prop("dep.mossylib"), "+"))
 }
 
-// NeoForge поставляет Sodium как jarjar: снаружи лежит обёртка, а классы — во вложенном
-// META-INF/jarjar/*-mod.jar. Компилировать компат-миксины против обёртки нельзя, поэтому
-// достаём внутренний джар и кладём его в compileOnly. У Fabric классы лежат напрямую,
-// а под Forge Sodium не существует вовсе (dep.sodium=unknown), там блок не срабатывает.
 if (!stonecutter.current.project.contains("fabric") && prop("dep.sodium") != "unknown") {
 	dependencies {
 		compileOnly files(extractNestedSodiumJar("maven.modrinth:sodium:${prop("dep.sodium")}"))

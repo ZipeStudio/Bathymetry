@@ -3,6 +3,7 @@ package me.zipestudio.bathymetry.client;
 import net.lopymine.mossylib.logger.MossyLogger;
 
 import me.zipestudio.bathymetry.Bathymetry;
+import me.zipestudio.bathymetry.compat.dh.DhCompat;
 import me.zipestudio.bathymetry.config.LeafyConfig;
 import net.minecraft.client.Minecraft;
 
@@ -12,6 +13,7 @@ public class BathymetryClient {
 
 	public static void onInitializeClient() {
 		LeafyConfig.getInstance();
+		DhCompat.register();
 		LOGGER.info("{} Client Initialized", Bathymetry.MOD_NAME);
 	}
 
@@ -20,6 +22,8 @@ public class BathymetryClient {
 		if (minecraft.level == null || minecraft.levelRenderer == null) {
 			return;
 		}
+
+		DhCompat.rebuildLods();
 
 		//? if >=26.2 {
 		minecraft.levelRenderer.invalidateCompiledGeometry(

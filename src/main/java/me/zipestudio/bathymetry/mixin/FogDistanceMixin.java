@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import me.zipestudio.bathymetry.water.UnderwaterFog;
 
-//? if >=26.1 {
+//? if >=1.21.11 {
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -36,7 +36,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 *///?}
 public class FogDistanceMixin {
 
-	//? if >=26.1 {
+	//? if >=1.21.11 {
 	@Inject(method = "setupFog", at = @At("RETURN"))
 	private void bathymetry$deepenFog(
 		FogData data,

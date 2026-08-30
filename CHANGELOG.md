@@ -1,3 +1,5 @@
-v1.0.1:
+v1.0.2:
 ### Changes
-- Corrected lang files
+- Added Distant Horizons support: water tint now applies to LOD terrain
+### Fixes
+- Fixed underwater fog crash on 1.21.11

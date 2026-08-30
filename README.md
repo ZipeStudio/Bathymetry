@@ -53,6 +53,10 @@ The mod is client-side and fully compatible with resource packs and datapacks, e
 
 <img src="https://github.com/ZipeStudio/bathymetry/blob/master/assets/showcase_shaders.gif?raw=true" width="100%" alt="showcase_shaders">
 
+### Distant Horizons Compatibility 🗺️
+
+<img src="https://github.com/ZipeStudio/bathymetry/blob/master/assets/dh_compatible.png?raw=true" width="100%" alt="dh_compatible">
+
 !["Configurable" Title](https://github.com/ZipeStudio/Vault/blob/main/design/mods/main/ZSconfigurable.png?raw=true)
 
 The mod is very easily configurable using **Mod Menu** and **YACL** for instant updates without a restart, things you can configure are listed below.
