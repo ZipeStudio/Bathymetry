@@ -1,5 +1,4 @@
-v1.0.2:
-### Changes
-- Added Distant Horizons support: water tint now applies to LOD terrain
+v1.0.3:
 ### Fixes
-- Fixed underwater fog crash on 1.21.11
+- Added Embeddium/Rubidium support on Forge 1.20.1
+- Added Embeddium support on NeoForge 1.20.1-1.21.1

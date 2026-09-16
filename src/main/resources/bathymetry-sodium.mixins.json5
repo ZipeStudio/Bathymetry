@@ -7,11 +7,12 @@
 	"mixins": [
 	],
 	"client": [
-		//? if !forge {
-		"SodiumFluidRendererMixin"
-		//?}
+		"SodiumFluidRendererMixin",
+		//? if neoforge && >=1.21 && <1.21.2 {
+		/*"EmbeddiumFluidRendererMixin"
+		*///?}
 	],
 	"injectors": {
-		"defaultRequire": 1
+		"defaultRequire": 0
 	}
 }

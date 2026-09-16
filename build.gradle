@@ -37,6 +37,12 @@ if (!stonecutter.current.project.contains("fabric") && prop("dep.sodium") != "un
 	}
 }
 
+if (findProperty("dep.embeddium") != null && prop("dep.embeddium") != "unknown") {
+	dependencies {
+		compileOnly "maven.modrinth:embeddium:${prop("dep.embeddium")}"
+	}
+}
+
 File extractNestedSodiumJar(String coordinate) {
 	def cfg = configurations.detachedConfiguration(dependencies.create(coordinate))
 	cfg.transitive = false
